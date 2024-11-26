@@ -80,8 +80,6 @@
         <h1>🎉 ¡Gracias por la ayuda! 🎉</h1>
         <p>Tu apoyo significa mucho para mí. 😊🙏</p>
         <div class="emoji">✨💖🌟</div>
-        <button onclick="incrementCounter()">Aceptar</button>
-        <div class="counter" id="counter">Personas que han ayudado: 0</div>
     </div>
 
     <footer>
@@ -89,21 +87,6 @@
         <p>Visita mi canal de YouTube: <a href="https://youtube.com/@cerberusld_youtube?si=jsDUNGFyhHkKZkGe" target="_blank">CerberusYT</a></p>
     </footer>
 
-    <script>
-        // Obtener el contador almacenado en localStorage o inicializarlo en 0
-        let counter = localStorage.getItem("helpCounter");
-        if (!counter) {
-            counter = 0;
-        } else {
-            document.getElementById("counter").textContent = `Personas que han ayudado: ${counter}`;
-        }
-
-        // Función para incrementar el contador
-        function incrementCounter() {
-            counter++;
-            localStorage.setItem("helpCounter", counter);
-            document.getElementById("counter").textContent = `Personas que han ayudado: ${counter}`;
-        }
-    </script>
+   
 </body>
 </html>
