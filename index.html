@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(120deg, #a1c4fd, #c2e9fb);
+            background: #2a2a2a; /* Fondo oscuro */
             margin: 0;
             padding: 0;
             display: flex;
@@ -15,32 +15,32 @@
             align-items: center;
             flex-direction: column;
             height: 100vh;
-            color: #333;
+            color: #f1f1f1; /* Texto claro */
         }
         .container {
             text-align: center;
-            background: #fff;
+            background: #444; /* Fondo de la caja más oscuro */
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
             margin-bottom: 50px;
         }
         h1 {
             font-size: 2.5rem;
             margin-bottom: 15px;
-            color: #007acc;
+            color: #4fc3f7; /* Color de texto azul */
         }
         p {
             font-size: 1.2rem;
             margin: 10px 0;
-            color: #555;
+            color: #d1d1d1; /* Texto gris claro */
         }
         .emoji {
             font-size: 2rem;
             margin: 15px 0;
         }
         button {
-            background: #007acc;
+            background: #4fc3f7; /* Azul brillante */
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -50,7 +50,7 @@
             transition: background 0.3s;
         }
         button:hover {
-            background: #005b99;
+            background: #0288d1; /* Azul más oscuro en hover */
         }
         footer {
             text-align: center;
@@ -58,15 +58,20 @@
             position: fixed;
             bottom: 0;
             width: 100%;
-            background-color: #333;
+            background-color: #333; /* Fondo oscuro para el footer */
             color: white;
         }
         footer a {
-            color: #ffdd57;
+            color: #ffdd57; /* Color amarillo para el enlace */
             text-decoration: none;
         }
         footer a:hover {
             text-decoration: underline;
+        }
+        .counter {
+            font-size: 1.5rem;
+            color: #ffdd57; /* Color amarillo para el contador */
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -75,12 +80,30 @@
         <h1>🎉 ¡Gracias por la ayuda! 🎉</h1>
         <p>Tu apoyo significa mucho para mí. 😊🙏</p>
         <div class="emoji">✨💖🌟</div>
-        <button onclick="alert('¡Gracias nuevamente! 😊')">Aceptar</button>
+        <button onclick="incrementCounter()">Aceptar</button>
+        <div class="counter" id="counter">Personas que han ayudado: 0</div>
     </div>
 
     <footer>
         <p>© 2024 CerberusLD | Todos los derechos reservados</p>
         <p>Visita mi canal de YouTube: <a href="https://youtube.com/@cerberusld_youtube?si=jsDUNGFyhHkKZkGe" target="_blank">CerberusYT</a></p>
     </footer>
+
+    <script>
+        // Obtener el contador almacenado en localStorage o inicializarlo en 0
+        let counter = localStorage.getItem("helpCounter");
+        if (!counter) {
+            counter = 0;
+        } else {
+            document.getElementById("counter").textContent = `Personas que han ayudado: ${counter}`;
+        }
+
+        // Función para incrementar el contador
+        function incrementCounter() {
+            counter++;
+            localStorage.setItem("helpCounter", counter);
+            document.getElementById("counter").textContent = `Personas que han ayudado: ${counter}`;
+        }
+    </script>
 </body>
 </html>
