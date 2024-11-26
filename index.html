@@ -73,6 +73,38 @@
             color: #ffdd57; /* Color amarillo para el contador */
             margin-top: 20px;
         }
+        /* Estilo del mensaje flotante */
+        .floating-message {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-color: #ff9800; /* Naranja brillante */
+            color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .floating-message.hidden {
+            opacity: 0;
+            transform: translateY(50px);
+            pointer-events: none;
+        }
+        .close-btn {
+            background: #d32f2f; /* Rojo oscuro */
+            border: none;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .close-btn:hover {
+            background: #b71c1c; /* Rojo más oscuro */
+        }
     </style>
 </head>
 <body>
@@ -87,6 +119,24 @@
         <p>Visita mi canal de YouTube: <a href="https://youtube.com/@cerberusld_youtube?si=jsDUNGFyhHkKZkGe" target="_blank">CerberusYT</a></p>
     </footer>
 
-   
+    <!-- Mensaje flotante -->
+    <div class="floating-message" id="subscribeMessage">
+        <span>¿No estás suscrito? <a href="https://youtube.com/@cerberusld_youtube?si=jsDUNGFyhHkKZkGe" target="_blank" style="color: #fff; text-decoration: underline;">¡Suscríbete aquí!</a></span>
+        <button class="close-btn" onclick="hideMessage()">Cerrar</button>
+    </div>
+
+    <script>
+        // Ocultar el mensaje flotante
+        function hideMessage() {
+            const message = document.getElementById('subscribeMessage');
+            message.classList.add('hidden');
+        }
+
+        // Mostrar el mensaje después de unos segundos
+        setTimeout(() => {
+            const message = document.getElementById('subscribeMessage');
+            message.classList.remove('hidden');
+        }, 3000); // Aparece después de 3 segundos
+    </script>
 </body>
 </html>
